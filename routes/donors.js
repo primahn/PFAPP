@@ -7,7 +7,7 @@ const {
 } = require("./jsonwebtoken");
 
 // CREATE A DONATION REQUEST*****************************
-router.post("/new", verifyToken, async (req, res) => {
+router.post("/new", verifyTokenAndAuthorization, async (req, res) => {
   const donor = new Donor({
     fullName: req.body.fullName,
     tel: req.body.tel,
@@ -64,7 +64,7 @@ router.get("/:id", verifyTokenAndAdmin, async (req, res) => {
   }
 });
 
-// GET ALL DONOTION REQUESTS*****************************
+// GET ALL DONATION REQUESTS*****************************
 router.get("/", verifyTokenAndAdmin, async (req, res) => {
   const query = req.query.new;
   try {
