@@ -7,7 +7,7 @@ const {
 } = require("./jsonwebtoken");
 
 // CREATE A DONATION REQUEST*****************************
-router.post("/new", verifyTokenAndAuthorization, async (req, res) => {
+router.post("/:userId", verifyToken, async (req, res) => {
   const donor = new Donor({
     fullName: req.body.fullName,
     tel: req.body.tel,
@@ -15,6 +15,7 @@ router.post("/new", verifyTokenAndAuthorization, async (req, res) => {
     bloodGroup: req.body.bloodGroup,
     address: req.body.address,
     city: req.body.city,
+    age: req.body.age,
     gender: req.body.gender,
   });
   try {

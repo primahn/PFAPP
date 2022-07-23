@@ -12,12 +12,15 @@ const DonorModel = new mongoose.Schema(
     },
     city: {
       type: String,
+      required: true,
     },
     age: {
-      type: String,
+      type: Number,
+      required: true,
     },
     address: {
       type: String,
+      required: true,
     },
     email: {
       type: String,
@@ -30,15 +33,12 @@ const DonorModel = new mongoose.Schema(
     },
     bloodGroup: {
       type: String,
+      required: true,
     },
     tel: {
       type: String,
       unique: true,
-    },
-    isVaccinated: {
-      type: String,
       required: true,
-      default: "No",
     },
   },
   { timestamps: true }
